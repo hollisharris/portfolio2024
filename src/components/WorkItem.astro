@@ -1,10 +1,15 @@
 ---
+import Chip from "@components/Chip.astro";
 import placeholder from '@assets/placeholder.svg?raw';
 ---
 
 <article class="py-12 lg:py-24">
-    <h3 class="font-serif text-3xl lg:text-4xl font-light tracking-tight">Accelerating an iconic car shopping experience.</h3>
-    <p class="mx-auto text-lg font-medium leading-10 mt-2">Capital One <span class="text-stone-400 font-light">&bull;</span> Auto Navigator</p>
+    <p class="mx-auto text-lg font-medium leading-10 tracking-tight">Capital One <span class="text-stone-400 font-light">&bull;</span> Auto Navigator</p>
+    <h3 class="font-serif text-3xl lg:text-4xl font-light tracking-tight">Accelerating user engagement on a car shopping aggregate.</h3>
+    <ul class="mt-4 flex flex-row">
+        <li><Chip>Data</Chip></li>
+    </ul>
+    
     <div class="mt-6">   
         <Fragment set:html={placeholder}/>
     </div>
