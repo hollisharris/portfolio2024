@@ -1,0 +1,36 @@
+---
+import mobilehero from '@assets/mobile-hero.svg?raw';
+---
+
+<section class="h-screen90 w-full flex flex-col justify-center relative m-auto">
+    <div class="absolute left-1/2 top-1/2 -translate-x-2/4 -translate-y-2/4 -z-10">
+        <Fragment set:html={mobilehero} />
+    </div>
+    <div class="m-auto">
+        <p class="text-center mb-2 text-xl lg:text-4xl font-semibold tracking">A design leader who <span class="block text-6xl lg:text-8xl leading-none tracking-tight">connects the&nbsp;dots</span>
+        </p>
+    </div>
+</section>
+
+
+<script>
+    import { gsap } from "gsap";
+
+    var tl = gsap.timeline();
+    tl.from(".hero-animation .business", { rotation: -45, opacity: 0, duration: 0.5, transformOrigin: 'left center' })
+      .to(".hero-animation .business", { y: -2, rotation: 2, yoyo: true, yoyoEase: 'none',repeat: -1, duration: 1, transformOrigin: 'right center' })
+      .from(".hero-animation .customer", { rotation: 25, opacity: 0, duration: 0.5, transformOrigin: 'left center' }, "-=1")
+      .to(".hero-animation .customer", { y: 2, rotation: 2, yoyo: true, yoyoEase: 'none',repeat: -1, duration: 1, transformOrigin: 'center center' })
+      .to(".hero-animation .anim-mask-business-customer", { strokeDashoffset: 0, duration: .75 }, "-=1")
+      .from(".hero-animation .design", { rotation: -45, opacity: 0, duration: 0.5, transformOrigin: 'left center' }, "-=0.15")
+      .to(".hero-animation .design", { y: 2, rotation: 2, yoyo: true, yoyoEase: 'none',repeat: -1, duration: 1, transformOrigin: 'center center' })
+      .from(".hero-animation .tech", { rotation: 25, opacity: 0, duration: 0.5, transformOrigin: 'left center' }, "-=1")
+      .to(".hero-animation .tech", { y: 2, rotation: 2, yoyo: true, yoyoEase: 'none',repeat: -1, duration: 1, transformOrigin: 'center center' })
+      .to(".hero-animation .anim-mask-design-tech", { strokeDashoffset: 0, duration: .75 }, "-=1")
+      .from(".hero-animation .data", { rotation: -45, opacity: 0, duration: 0.5, transformOrigin: 'left center' }, "-=0.15")
+      .to(".hero-animation .data", { y: 2, rotation: 2, yoyo: true, yoyoEase: 'none',repeat: -1, duration: 1, transformOrigin: 'center center' })
+      .from(".hero-animation .decision", { rotation: 25, opacity: 0, duration: 0.5, transformOrigin: 'left center' }, "-=1")
+      .to(".hero-animation .decision", { y: 2, rotation: 2, yoyo: true, yoyoEase: 'none',repeat: -1, duration: 1, transformOrigin: 'center center' })
+      .to(".hero-animation .anim-mask-data-decision", { strokeDashoffset: 0, duration: .75 }, "-=1")
+</script>
+

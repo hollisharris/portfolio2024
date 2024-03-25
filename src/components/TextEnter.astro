@@ -1,0 +1,24 @@
+---
+---
+<div class="animate-enter opacity-0 translate-y-24">
+    <slot />
+</div>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to(".animate-enter", {
+        scrollTrigger: {
+            trigger: ".animate-enter",
+            start: "top +=500"
+        },
+        y: 0,
+        opacity: 1,
+        duration: .8,
+        transformOrigin: 'left top',
+        ease: "power2.out",
+    });
+
+</script>
