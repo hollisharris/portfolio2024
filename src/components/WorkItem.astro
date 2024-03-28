@@ -6,7 +6,7 @@ const { slug, headline, company, project, description, image} = Astro.props;
 ---
 
 <article class="py-12 border-b">
-    <div class="flex-1 w-full pl-4">
+    <div class="flex-1 w-full lg:px-4">
         <p class="font-semibold text-xs tracking-wide uppercase mb-2 text-stone-500">{company} <span class="text-stone-400 font-light">&bull;</span> {project}</p>
         <h3 class="text-3xl lg:text-4xl leading-none font-semibold tracking-tight lg:w-5/6">{headline}</h3>
         <p class="font-serif font-light tracking-tight text-lg mt-4 mb-6">{description}</p>
