@@ -1,16 +1,25 @@
 ---
-import Chip from "@components/Chip.astro";
 import placeholder from '@assets/placeholder.svg?raw';
+import SlideIn from './SlideIn.astro';
+
+const { slug, headline, company, project, description, image} = Astro.props;
 ---
 
-<article class="py-12 lg:py-24">
-    <p class="mx-auto text-lg font-medium leading-10 tracking-tight">Capital One <span class="text-stone-400 font-light">&bull;</span> Auto Navigator</p>
-    <h3 class="font-serif text-3xl lg:text-4xl font-light tracking-tight">Accelerating user engagement on a car shopping aggregate.</h3>
-    <ul class="mt-4 flex flex-row">
-        <li><Chip>Data</Chip></li>
-    </ul>
-    
-    <div class="mt-6">   
-        <Fragment set:html={placeholder}/>
+<article class="py-12 border-b">
+    <div class="flex-1 w-full pl-4">
+        <p class="font-semibold text-xs tracking-wide uppercase mb-2 text-stone-500">{company} <span class="text-stone-400 font-light">&bull;</span> {project}</p>
+        <h3 class="text-3xl lg:text-4xl leading-none font-semibold tracking-tight lg:w-5/6">{headline}</h3>
+        <p class="font-serif font-light tracking-tight text-lg mt-4 mb-6">{description}</p>
     </div>
+    
+    <SlideIn id={slug}>
+    <div class="flex-1 mt-6 lg:mt-0 rounded-2xl overflow-hidden">
+        {image ?
+            <Fragment set:html={placeholder}/>
+            :
+            <Fragment set:html={placeholder}/>
+        }   
+        
+    </div>
+    </SlideIn>
 </article>
