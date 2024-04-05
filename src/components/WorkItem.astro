@@ -5,15 +5,15 @@ import SlideIn from './SlideIn.astro';
 const { slug, headline, company, project, description, image} = Astro.props;
 ---
 
-<article class="py-12 border-b">
-    <div class="flex-1 w-full lg:px-4">
+<article class="pt-16 pb-12 border-b">
+    <div class="flex-1 w-full">
         <p class="font-semibold text-xs tracking-wide uppercase mb-2 text-stone-500">{company} <span class="text-stone-400 font-light">&bull;</span> {project}</p>
-        <h3 class="text-3xl lg:text-4xl leading-none font-semibold tracking-tight lg:w-5/6">{headline}</h3>
-        <p class="font-serif font-light tracking-tight text-lg mt-4 mb-6">{description}</p>
+        <h3 class="font-sans font-semibold text-3xl lg:text-5xl leading-none  tracking-tight  mb-12">{headline}</h3>
+        <!-- <p class="font-serif font-light tracking-tight text-lg mt-4 mb-6">{description}</p> -->
     </div>
     
     <SlideIn id={slug}>
-    <div class="flex-1 mt-6 lg:mt-0 rounded-2xl overflow-hidden">
+    <div class="flex-1 lg:mt-0 rounded-sm overflow-hidden">
         {image ?
             <Fragment set:html={placeholder}/>
             :

@@ -1,5 +1,9 @@
 ---
+import Navigation from "@components/Navigation.astro"
 import Footer from "@components/Footer.astro"
+import { ViewTransitions } from "astro:transitions";
+
+const { pageTitle } = Astro.props;
 ---
 
 <html lang="en">
@@ -8,9 +12,10 @@ import Footer from "@components/Footer.astro"
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Hollis Harris</title>
+		<title>{pageTitle || `Hollis Harris - Senior Product Designer`}</title>
 	</head>
 	<body>
+		<Navigation />
         <slot />
         <Footer />
     </body>

@@ -1,12 +1,36 @@
 ---
 import Container from "@components/Container.astro"
+import mobilefooter from '@assets/mobile-footer.svg?raw';
+
 ---
 <footer>
-    <Container class="py-12 lg:py-24 text-center">
+    <Container class="py-24 lg:py-36 text-center relative">
+        <div class="absolute left-1/2 top-1/2 -translate-x-2/4 -translate-y-2/4 -z-10">
+            <Fragment set:html={mobilefooter} />
+        </div>
+
         <a href="/contact" class="font-semibold text-6xl lg:text-8xl leading-none tracking-tight">Let's connect</a>
     </Container>
 
     <Container>
-        Built by me
+        <p class="text-center py-8 text-stone-600">The site was built by me using <strong>Astro, Tailwind & GSAP</strong></p>
     </Container>
 </footer>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+
+    var footerTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: 'footer',
+            start: "top bottom-=10%"
+        }
+    });
+    footerTl.from(".footer-animation .me", { rotation: -45, opacity: 0, duration: 0.5, transformOrigin: 'left center' })
+      .to(".footer-animation .me", { y: -2, rotation: 2, yoyo: true, yoyoEase: 'none',repeat: -1, duration: 1, transformOrigin: 'right center' })
+      .from(".footer-animation .you", { rotation: 25, opacity: 0, duration: 0.5, transformOrigin: 'left center' }, "-=1")
+      .to(".footer-animation .you", { y: 2, rotation: 2, yoyo: true, yoyoEase: 'none',repeat: -1, duration: 1, transformOrigin: 'center center' })
+      .to(".footer-animation .anim-mask-you-me", { strokeDashoffset: 0, duration: .75 }, "-=1")
+</script>

@@ -22,11 +22,11 @@ const{ id } = Astro.props;
             gsap.to(`.slide-in-${id} div`, {
                 scrollTrigger: {
                     trigger: `.slide-in-${id} div`,
-                    start: "top bottom-=20%"
+                    start: "top bottom-=10%"
                 },
                 y: 0,
                 opacity: 1,
-                duration: .8,
+                duration: 1,
                 transformOrigin: 'left top',
                 ease: "power2.out",
             });
