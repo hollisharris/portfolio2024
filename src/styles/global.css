@@ -5,13 +5,12 @@
 @layer base {
   @font-face {
     font-family: 'Gambetta';
-    src: url(/fonts/gambetta/Gambetta-Variable.woff2) format('woff2'),
-    url(/fonts/gambetta/Gambetta-Variable.woff) format('woff'),
-    url(/fonts/gambetta/Gambetta-Variable.ttf) format('truetype');
-    font-weight: 100 900;
-    font-display: swap;
-    font-style: normal;
-    src: url() format('truetype');
+    src:  url(/fonts/gambetta/Gambetta-Variable.woff2) format('woff2'),
+          url(/fonts/gambetta/Gambetta-Variable.woff) format('woff'),
+          url(/fonts/gambetta/Gambetta-Variable.ttf) format('truetype');
+          font-weight: 100 900;
+          font-display: swap;
+          font-style: normal;
   }
 
   @font-face {
