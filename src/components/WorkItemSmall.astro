@@ -1,6 +1,5 @@
 ---
 import placeholder from '@assets/placeholder.svg?raw';
-import SlideIn from './SlideIn.astro';
 
 const { slug, headline, company, project, description, image} = Astro.props;
 ---
@@ -9,11 +8,10 @@ const { slug, headline, company, project, description, image} = Astro.props;
     <a href={`/work/${slug}`}>
         <div class="flex-1 w-full">
             <p transition:name={`eyebrow-${slug}`} class="font-semibold text-xs tracking-wide uppercase mb-2 text-stone-500">{company} <span class="text-stone-400 font-light">&bull;</span> {project}</p>
-            <h3 transition:name={`headline-${slug}`} class="font-sans font-semibold text-3xl lg:text-5xl leading-none  tracking-tight  mb-8">{headline}</h3>
+            <h3 transition:name={`headline-${slug}`} class="font-sans font-semibold text-xl lg:text-2xl leading-none  tracking-tight  mb-8">{headline}</h3>
             <!-- <p class="font-serif font-light tracking-tight text-lg mt-4 mb-6">{description}</p> -->
         </div>
         
-        <SlideIn id={slug}>
         <div class="flex-1 lg:mt-0 rounded-sm overflow-hidden" transition:name={`heroImage-${slug}`}>
             {image ?
                 <Fragment set:html={placeholder}/>
@@ -22,6 +20,5 @@ const { slug, headline, company, project, description, image} = Astro.props;
             }   
             
         </div>
-        </SlideIn>
     </a>
 </article>

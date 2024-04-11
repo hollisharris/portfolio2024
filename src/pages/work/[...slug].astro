@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '@layouts/MainLayout.astro';
+import Container from '@components/Container.astro';
+import placeholder from '@assets/placeholder.svg?raw';
+
+export async function getStaticPaths() {
+  const workEntries = await getCollection('work');
+  return workEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const {slug, company, project, headline} = entry.data
+---
+
+<MainLayout>
+    <Container>
+        <p transition:name={`eyebrow-${slug}`} class="font-semibold text-xs tracking-wide uppercase mb-2 text-stone-500">{company} <span class="text-stone-400 font-light">&bull;</span> {project}</p>
+        <h1 transition:name={`headline-${slug}`} class="font-sans font-semibold text-3xl lg:text-5xl leading-none  tracking-tight  mb-8">{headline}</h1>
+        <div class="flex-1 lg:mt-0 rounded-sm overflow-hidden lg:-mx-24" transition:name={`heroImage-${slug}`}>
+            <Fragment set:html={placeholder}/>
+        </div>
+    </Container>
+
+    <Container class="mt-12">
+      <Content />
+    </Container>
+</MainLayout>

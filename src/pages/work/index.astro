@@ -1,11 +1,32 @@
 ---
+import { getCollection } from "astro:content";
 import MainLayout from '@layouts/MainLayout.astro';
 import Container from '@components/Container.astro';
+import WorkItemSmall from '@components/WorkItemSmall.astro';
+
+const allWork = await getCollection("work");
 ---
 
 <MainLayout>
     <Container>
         <p class="mb-2 font-semibold tracking block text-6xl lg:text-8xl leading-none tracking-tight">Work.</span>
         </p>
+    </Container>
+    <Container>
+        <div class="grid grid-cols-2">
+            {
+            allWork.map((work) => {
+                const{slug, company, project, headline} = work.data
+                return (
+                    <WorkItemSmall 
+                        slug={slug}
+                        company={company}
+                        project={project}
+                        headline={headline}
+                    />
+                )
+                })
+            }
+        </div>
     </Container>
 </MainLayout>
