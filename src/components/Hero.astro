@@ -1,5 +1,6 @@
 ---
 import mobilehero from '@assets/mobile-hero.svg?raw';
+import Typography from '@components/Typography/index.astro'
 ---
 
 <section class="h-screen80 lg:h-screen90 w-full flex flex-col justify-center relative m-auto -mt-24">
@@ -7,8 +8,7 @@ import mobilehero from '@assets/mobile-hero.svg?raw';
         <Fragment set:html={mobilehero} />
     </div>
     <div class="m-auto">
-        <p class="text-center mb-2 text-xl lg:text-4xl font-semibold tracking">A design leader who <span class="block text-6xl lg:text-8xl leading-none tracking-tight">connects the&nbsp;dots</span>
-        </p>
+        <Typography as="p" size="super" class="text-center"><span class="mb-2 text-xl lg:text-4xl tracking-normal block">A design leader who</span> connects the&nbsp;dots</Typography>
     </div>
 </section>
 

@@ -14,7 +14,7 @@ const { slug, headline, company, project, description, image} = Astro.props;
         </div>
         
         <SlideIn id={slug}>
-        <div class="flex-1 lg:mt-0 rounded-sm overflow-hidden" transition:name={`heroImage-${slug}`}>
+        <div class="flex-1 lg:mt-0 rounded-md overflow-hidden" transition:name={`heroImage-${slug}`}>
             {image ?
                 <Fragment set:html={placeholder}/>
                 :

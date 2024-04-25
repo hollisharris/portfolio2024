@@ -1,9 +1,14 @@
 ---
+import { getCollection } from "astro:content";
 import MainLayout from '@layouts/MainLayout.astro';
 import Hero from '@components/Hero.astro';
 import Container from '@components/Container.astro';
 import SlideIn from '@components/SlideIn.astro';
 import WorkItem from '@components/WorkItem.astro';
+import Typography from '@components/Typography/index.astro'
+
+const allWork = await getCollection("work")
+const featuredWork = allWork.filter(work => work.data.featured === true);
 ---
 
 <MainLayout>
@@ -11,28 +16,31 @@ import WorkItem from '@components/WorkItem.astro';
 
 		<Container class="mb-12 lg:mb-24">
 			<SlideIn id="about">
-				<h2 class="mx-auto text-lg font-semibold leading-10 mb-4 lg:mb-10 border-b py-1 lg:py-2">A little about me</h2>
-				<h1 class="mx-auto max-w-4xl font-serif font-light tracking-tight text-3xl lg:text-5xl lg:leading-tight mt-1">I’m a product designer who loves to code. Over the past 10+ years, I've transformed complex problems into engaging consumer websites and apps. Fostering collaboration, and sharing knowledge along the way.</h1>
+				<div class="flex flex-col lg:flex-row gap-12">
+					<div class="w-full lg:w-1/2">
+						<Typography as="h2" size="base" class="mx-auto">A little about me</h2>
+						<h1 class="max-w-lg font-sans font-semibold text-2xl lg:text-3xl lg:leading-tight mt-0">I’m a product designer, front-end developer and mentor.</h1>
+						<p class="max-w-lg lg:text-xl lg:leading-normal mt-5 text-stone-500">Over the past 10+ years, I've transformed complex problems into engaging consumer websites and apps. Fostering collaboration, and sharing knowledge along the way.</p>
+					</div>
+				</div>
 			</SlideIn>
 		</Container>
 
-		<!-- <BackgroundScale> -->
 		<Container class="py-12">
-			<h2 class="mx-auto text-lg font-semibold leading-10 lg:sticky top-0 py-1 lg:py-2 border-b bg-white  z-10">Selected projects</h2>
-			<!-- <h2 class="block text-6xl lg:text-8xl text-stone-400 leading-none font-semibold tracking-tight">Selected<br />work.</h2> -->
-			<WorkItem 
-				slug="autonav"
-				headline="Accelerating user engagement on a leading online car buying platform."
-				description="Rapid testing and more"
-				company="Capital One"
-				project="Auto Navigator"
-			/>
-			<WorkItem 
-				slug="uta"
-				headline="Accelerating user engagement and monetization for car shoppers."
-				company="Capital One"
-				project="Auto Navigator"
-			/>
+			<h2 class="mx-auto text-base font-semibold leading-10 lg:sticky top-0 py-1 lg:py-2 border-b bg-white  z-10">Selected projects</h2>
+			{
+				featuredWork.map((work) => {
+					const{slug, company, project, headline} = work.data
+					return (
+						<WorkItem 
+							slug={slug}
+							company={company}
+							project={project}
+							headline={headline}
+							key={slug}
+						/>
+					)
+				})
+			}
 		</Container>
-		<!-- </BackgroundScale> -->
 </MainLayout>

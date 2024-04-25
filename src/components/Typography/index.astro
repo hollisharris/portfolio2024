@@ -1,0 +1,24 @@
+---
+interface Props {
+  as: HTMLHeadingElement | HTMLParagraphElement;
+  size?: 'super' | 'large' | 'base';
+  class?: string;
+}
+
+
+const { as:Element, size = 'base', class: className } = Astro.props;
+
+var level;
+switch(size) {
+    case 'super':
+        level = 'text-6xl lg:text-8xl leading-none tracking-tight font-semibold'
+        break;
+    case 'base':
+        level = 'text-base font-semibold leading-10 '
+        break;
+    default: 
+        level = 'text-base font-semibold leading-10 '
+}
+---
+
+<Element class:list={[level, className]}><slot/></Element>
