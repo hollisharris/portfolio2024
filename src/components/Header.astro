@@ -28,7 +28,7 @@ const myFade = {
 
 <header class="w-full bg-white border-b" transition:name='globalheader' transition:animate={myFade}>
     <Container>
-        <Navigation client:load/>
+        <Navigation client:only='preact'/>
     </Container>
 </header>
 
