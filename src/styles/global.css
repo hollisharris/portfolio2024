@@ -5,9 +5,9 @@
 @layer base {
   @font-face {
     font-family: 'Gambetta';
-    src:  url(/fonts/gambetta/Gambetta-Variable.woff2) format('woff2'),
-          url(/fonts/gambetta/Gambetta-Variable.woff) format('woff'),
-          url(/fonts/gambetta/Gambetta-Variable.ttf) format('truetype');
+    src:  url('/fonts/gambetta/Gambetta-Variable.woff2') format('woff2'),
+          url('/fonts/gambetta/Gambetta-Variable.woff') format('woff'),
+          url('/fonts/gambetta/Gambetta-Variable.ttf') format('truetype');
           font-weight: 100 900;
           font-display: swap;
           font-style: normal;
@@ -15,12 +15,41 @@
 
   @font-face {
     font-family: 'GeneralSans';
-    src: url(/fonts/general-sans/GeneralSans-Variable.woff2) format('woff2'),
-         url(/fonts/general-sans/GeneralSans-Variable.woff) format('woff'),
-         url(/fonts/general-sans/GeneralSans-Variable.ttf) format('truetype');
-         font-weight: 100 900;
-         font-display: swap;
-         font-style: normal;
+    src: url('/fonts/general-sans/GeneralSans-Variable.woff2') format('woff2'),
+          url('/fonts/general-sans/GeneralSans-Variable.woff') format('woff'),
+          url('/fonts/general-sans/GeneralSans-Variable.ttf') format('truetype');
+          font-weight: 100 900;
+          font-display: swap;
+          font-style: normal;
   }
-  
+
+  @font-face {
+    font-family: 'Karma-Variable';
+    src: url('/fonts/karma/Karma-Variable.woff2') format('woff2'),
+          url('/fonts/karma/Karma-Variable.woff') format('woff'),
+          url('/fonts/karma/Karma-Variable.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Chubbo';
+    src: url('/fonts/chubbo/Chubbo-Variable.woff2') format('woff2'),
+          url('/fonts/chubbo/Chubbo-Variable.woff') format('woff'),
+          url('/fonts/chubbo/Chubbo-Variable.ttf') format('truetype');
+    font-weight: 200 700;
+    font-display: swap;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Chubbo-VariableItalic';
+    src: url('/fonts/chubbo/Chubbo-VariableItalic.woff2') format('woff2'),
+          url('/fonts/chubbo/Chubbo-VariableItalic.woff') format('woff'),
+          url('/fonts/chubbo/Chubbo-VariableItalic.ttf') format('truetype');
+    font-weight: 200 700;
+    font-display: swap;
+    font-style: italic;
+  }
 }
+  

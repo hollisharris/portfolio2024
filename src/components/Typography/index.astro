@@ -1,24 +1,36 @@
 ---
 interface Props {
   as: HTMLHeadingElement | HTMLParagraphElement;
-  size?: 'super' | 'large' | 'base';
+  size?: 'super' | 'xlarge' | 'base' | 'small' | 'xsmall';
   class?: string;
 }
 
-
-const { as:Element, size = 'base', class: className } = Astro.props;
+const {
+    as:Element, size = 'base',
+    class: className,
+    ...rest
+} = Astro.props;
 
 var level;
 switch(size) {
     case 'super':
-        level = 'text-6xl lg:text-8xl leading-none tracking-tight font-semibold'
+        level = 'font-sans text-6xl lg:text-8xl leading-none tracking-tight font-semibold'
+        break;
+    case 'xlarge':
+        level = 'font-sans font-semibold text-3xl lg:text-5xl leading-none tracking-tight'
         break;
     case 'base':
-        level = 'text-base font-semibold leading-10 '
+        level = 'font-sans lg:text-xl lg:leading-normal font-medium'
+        break;
+    case 'small': 
+        level= 'font-sans text-base font-semibold leading-10'
+        break;
+    case 'xsmall': 
+        level= 'font-sans font-semibold text-xs tracking-wide uppercase'
         break;
     default: 
-        level = 'text-base font-semibold leading-10 '
+        level = 'font-sans text-base font-semibold leading-10'
 }
 ---
 
-<Element class:list={[level, className]}><slot/></Element>
+<Element class:list={[level, className]} {...rest}><slot/></Element>

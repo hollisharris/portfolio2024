@@ -2,31 +2,30 @@
 import { getCollection } from "astro:content";
 import MainLayout from '@layouts/MainLayout.astro';
 import Container from '@components/Container.astro';
-import WorkItemSmall from '@components/WorkItemSmall.astro';
+import WorkItem from '@components/WorkItem.astro';
 
-const allWork = await getCollection("work");
+const allProjects = await getCollection("projects");
 ---
 
 <MainLayout>
     <Container>
-        <p class="mb-2 font-semibold tracking block text-6xl lg:text-8xl leading-none tracking-tight">Work.</span>
+        <p class="mb-2 font-semibold tracking block text-6xl lg:text-8xl leading-none tracking-tight text-stone-300">Projects.</span>
         </p>
     </Container>
     <Container>
-        <div class="grid grid-cols-2">
             {
-            allWork.map((work) => {
-                const{slug, company, project, headline} = work.data
+            allProjects.map((entry) => {
+                const{id, company, project, headline} = entry.data
                 return (
-                    <WorkItemSmall 
-                        slug={slug}
+                    <WorkItem
+                        slug={id}
                         company={company}
                         project={project}
                         headline={headline}
+                        key={id}
                     />
                 )
                 })
             }
-        </div>
     </Container>
 </MainLayout>

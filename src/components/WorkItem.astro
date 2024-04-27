@@ -1,27 +1,23 @@
 ---
+import Typography from '@components/Typography/index.astro'
 import placeholder from '@assets/placeholder.svg?raw';
-import SlideIn from './SlideIn.astro';
 
 const { slug, headline, company, project, description, image} = Astro.props;
 ---
 
 <article class="pt-12 pb-8">
-    <a href={`/work/${slug}`}>
+    <a href={`/projects/${slug}`} class="group">
         <div class="flex-1 w-full">
-            <p transition:name={`eyebrow-${slug}`} class="font-semibold text-xs tracking-wide uppercase mb-2 text-stone-500">{company} <span class="text-stone-400 font-light">&bull;</span> {project}</p>
-            <h3 transition:name={`headline-${slug}`} class="font-sans font-semibold text-3xl lg:text-5xl leading-none  tracking-tight  mb-8">{headline}</h3>
-            <!-- <p class="font-serif font-light tracking-tight text-lg mt-4 mb-6">{description}</p> -->
+            <Typography as="p" size="xsmall" class="mb-5 text-stone-500  group-hover:-translate-y-2 transition-transform  delay-100" transition:name={`eyebrow-${slug}`}>{company} <span class="text-stone-400 font-light">&bull;</span> {project}</Typography>
+            <Typography as="h3" size="xlarge" class="mb-8  group-hover:-translate-y-2 transition-transform" transition:name={`headline-${slug}`}>{headline}</Typography>
         </div>
         
-        <SlideIn id={slug}>
-        <div class="flex-1 lg:mt-0 rounded-md overflow-hidden" transition:name={`heroImage-${slug}`}>
+        <div class="group-hover:rounded-xl  group-hover:scale-105 transition-transform flex-1 lg:mt-0 rounded-md overflow-hidden" transition:name={`heroImage-${slug}`}>
             {image ?
                 <Fragment set:html={placeholder}/>
                 :
                 <Fragment set:html={placeholder}/>
             }   
-            
         </div>
-        </SlideIn>
     </a>
 </article>
