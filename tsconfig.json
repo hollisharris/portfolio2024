@@ -14,7 +14,7 @@
       ],
       "@styles/*": [
         "src/styles/*"
-      ]
+      ],
     },
     "strictNullChecks": true,
     "allowJs": true,
