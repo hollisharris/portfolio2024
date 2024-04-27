@@ -8,7 +8,7 @@ export default function Navigation() {
       <nav className="bg-white border-gray-200 py-2.5">
           <div className="flex flex-wrap justify-between items-center mx-auto">
               <a href="/" className="flex items-center">
-                  <span className="self-center text-2xl font-semibold whitespace-nowrap tracking-tighter">hollis</span>
+                  <span className="self-center text-2xl font-semibold whitespace-nowrap tracking-tighter">hollis.</span>
               </a>
 
               <div className="lg:hidden flex items-center lg:order-2">
