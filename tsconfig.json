@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "baseUrl": "/Users/work/Documents/Code/portfolio2024",
+    "baseUrl": ".",
     "paths": {
       "@layouts/*": [
         "src/layouts/*"
