@@ -2,8 +2,8 @@
 import { getCollection } from 'astro:content';
 import MainLayout from '@layouts/MainLayout.astro';
 import Container from '@components/Container.astro';
+import ProjectHero from '@components/ProjectHero.astro';
 import Typography from '@components/Typography/index.astro';
-import placeholder from '@assets/placeholder.svg?raw';
 
 export async function getStaticPaths() {
   const projectEntries = await getCollection('projects');
@@ -15,17 +15,22 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-const {id, company, project, headline} = entry.data
+const {id, company, project, headline, eyebrow} = entry.data
 ---
 
 <MainLayout>
-    <Container>
-      <Typography as="p" size="xsmall" class="mb-5 text-stone-500" transition:name={`eyebrow-${id}`}>{company} <span class="text-stone-400 font-light">&bull;</span> {project}</Typography>
-      <Typography as="h1" size="xlarge" class="mb-8" transition:name={`headline-${id}`}>{headline}</Typography>
-        <div class="flex-1 lg:mt-0 overflow-hidden lg:-mx-24 rounded-3xl" transition:name={`heroImage-${id}`}>
-            <Fragment set:html={placeholder}/>
-        </div>
-    </Container>
+    <!-- <Container class="group project_hero"> -->
+      <div class="project_hero">
+        <ProjectHero 
+          transition:name={`projecthero-${id}`}
+          id={id}
+          eyebrow={eyebrow}
+          company={company}
+          project={project}
+          headline={headline}
+        />
+      </div>
+    <!-- </Container> -->
 
     <Container class="mt-12">
       <Content />

@@ -8,7 +8,7 @@ export default function Navigation() {
       <nav className="bg-white border-gray-200 py-2.5">
           <div className="flex flex-wrap justify-between items-center mx-auto">
               <a href="/" className="flex items-center">
-                  <span className="self-center text-2xl font-semibold whitespace-nowrap tracking-tighter">hollis.</span>
+                  <span className="self-center text-xl font-extrabold whitespace-nowrap tracking-wide uppercase">hollis.</span>
               </a>
 
               <div className="lg:hidden flex items-center lg:order-2">
@@ -20,15 +20,15 @@ export default function Navigation() {
               </div>
 
               <div className={`${!mobileMenuIsOpen ? 'hidden' : ''} justify-between items-center w-full lg:flex lg:w-auto lg:order-1`} id="mobile-menu-2">
-                  <ul className="flex flex-col mt-4 font-sans font-semibold text-xs tracking-wide uppercase lg:flex-row lg:space-x-8 lg:mt-0">
+                  <ul className="flex flex-col mt-4 lg:flex-row lg:space-x-8 lg:mt-0   font-sans text-base font-semibold leading-10">
                       <li>
-                          <a href="/projects" className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 ">Projects</a>
+                          <a href="/projects" className="block py-0 pr-4 pl-3 lg:hover:bg-gray-50 lg:hover:text-primary-500 lg:rounded-lg">Projects</a>
                       </li>
                       <li>
-                          <a href="#" className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 ">About</a>
+                          <a href="#" className="block py-0 pr-4 pl-3 lg:hover:bg-gray-50 lg:hover:text-primary-500 lg:rounded-lg">About</a>
                       </li>
                       <li>
-                          <a href="#" className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 ">Connect</a>
+                          <a href="#" className="block py-0 pr-4 pl-3 lg:hover:bg-gray-50 lg:hover:text-primary-500 lg:rounded-lg">Connect</a>
                       </li>
                   </ul>
               </div>

@@ -2,28 +2,34 @@
 import { getCollection } from "astro:content";
 import MainLayout from '@layouts/MainLayout.astro';
 import Container from '@components/Container.astro';
-import WorkItem from '@components/WorkItem.astro';
+import ProjectHero from '@components/ProjectHero.astro';
 
 const allProjects = await getCollection("projects");
 ---
 
 <MainLayout>
     <Container>
-        <p class="mb-2 font-semibold tracking block text-6xl lg:text-8xl leading-none tracking-tight text-stone-300">Projects.</span>
+        <p class="mb-2 font-semibold tracking block text-6xl lg:text-8xl leading-none tracking-tight text-stone-300 text-center">All projects.</span>
         </p>
     </Container>
     <Container>
             {
             allProjects.map((entry) => {
-                const{id, company, project, headline} = entry.data
+                const{id, company, project, headline, eyebrow} = entry.data
                 return (
-                    <WorkItem
-                        slug={id}
-                        company={company}
-                        project={project}
-                        headline={headline}
-                        key={id}
-                    />
+                    <article class="pt-12 lg:pt-24">
+                        <a href={`/projects/${id}`} class="group/link">
+                            <ProjectHero
+                                transition:name={`projecthero-${id}`}
+                                id={id}
+                                eyebrow={eyebrow}
+                                company={company}
+                                project={project}
+                                headline={headline}
+                                key={id}
+                            />
+                        </a>
+                    </article>
                 )
                 })
             }

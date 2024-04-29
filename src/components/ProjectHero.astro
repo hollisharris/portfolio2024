@@ -1,0 +1,31 @@
+---
+import Typography from '@components/Typography/index.astro'
+import placeholder from '@assets/placeholder.svg?raw';
+
+const {
+    id,
+    eyebrow,
+    headline,
+    company,
+    project,
+    image
+} = Astro.props;
+---
+
+<div class={`flex flex-col md:flex-row items-center gap-8 border-b pb-12 lg:pb-24 bg-white`} transition:name={`projecthero-${id}`}>
+    <div class="flex-1 project_hero_content">
+        {eyebrow && <Typography as="p" size="xsmall" class="mb-3 lg:mb-8  group-hover/link:-translate-y-2 transition-transform text-stone-400" transition:name={`eyebrow-${id}`}>{eyebrow}</Typography> }
+        <Typography as="h3" size="xlarge" class="mb-2 lg:mb-8  group-hover/link:-translate-y-2 transition-transform delay-100" transition:name={`headline-${id}`}>{headline}</Typography>
+        <Typography as="p" size="small" class="group-hover/link:-translate-y-2 transition-transform  delay-200" transition:name={`companyproject-${id}`}>{company}'s {project}</Typography>
+    </div>
+
+    <div class="project_hero_image w-full group-hover/link:rounded-xl group-hover/link:scale-105 transition-transform flex-1 mt-0 rounded-md overflow-hidden" transition:name={`heroImage-${id}`}>
+        {image ?
+            <Fragment set:html={placeholder}/>
+            :
+            <Fragment set:html={placeholder}/>
+        }   
+    </div>
+</div>
+
+

@@ -19,17 +19,20 @@ switch(size) {
     case 'xlarge':
         level = 'font-sans font-semibold text-3xl lg:text-5xl leading-none tracking-tight'
         break;
+    case 'large':
+        level = 'font-sans text-lg lg:text-2xl lg:leading-normal font-medium'
+        break;
     case 'base':
-        level = 'font-sans lg:text-xl lg:leading-normal font-medium'
+        level = 'font-sans text-lg lg:text-xl lg:leading-normal font-medium'
         break;
     case 'small': 
-        level= 'font-sans text-base font-semibold leading-10'
+        level= 'font-sans text-lg lg:text-base font-semibold leading-10'
         break;
     case 'xsmall': 
         level= 'font-sans font-semibold text-xs tracking-wide uppercase'
         break;
     default: 
-        level = 'font-sans text-base font-semibold leading-10'
+        level = 'font-sans text-lg lg:text-base font-semibold leading-10'
 }
 ---
 

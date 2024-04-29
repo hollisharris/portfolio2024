@@ -1,41 +1,10 @@
 ---
 import Container from '@components/Container.astro';
 import Navigation from '@components/Navigation.jsx';
-
-const anim = {
-    old: {
-        name: 'slideDown',
-        delay:  '0.2s',
-        duration: '0.2s',
-        easing: 'linear',
-        fillMode: 'forwards',
-    },
-    new: {
-        name: 'slideDown',
-        delay: '0.3s',
-        duration: '0.3s',
-        easing: 'linear',
-        fillMode: 'backwards',
-    }
-};
-
-const myFade = {
-  forwards: anim,
-  backwards: anim,
-};
-
 ---
 
-<header class="w-full bg-white border-b" transition:name='globalheader' transition:animate={myFade}>
+<header class="w-full bg-white border-b z-50" transition:name='globalheader'>
     <Container>
         <Navigation client:only='preact'/>
     </Container>
 </header>
-
-
-<style>
-    @keyframes slideDown {
-        from {transform: translateY(-100%);}
-        to {transform: translateY(0%);}
-    }
-</style>
