@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "/Users/work/Documents/Code/portfolio2024",
     "paths": {
       "@layouts/*": [
         "src/layouts/*"
@@ -14,11 +14,11 @@
       ],
       "@styles/*": [
         "src/styles/*"
-      ],
+      ]
     },
     "strictNullChecks": true,
     "allowJs": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact"
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js"
   }
 }

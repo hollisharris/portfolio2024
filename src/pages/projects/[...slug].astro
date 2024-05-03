@@ -2,8 +2,7 @@
 import { getCollection } from 'astro:content';
 import MainLayout from '@layouts/MainLayout.astro';
 import Container from '@components/Container.astro';
-import ProjectHero from '@components/ProjectHero.astro';
-import Typography from '@components/Typography/index.astro';
+import ProjectContent from '@components/ProjectContent.jsx';
 
 export async function getStaticPaths() {
   const projectEntries = await getCollection('projects');
@@ -19,20 +18,17 @@ const {id, company, project, headline, eyebrow} = entry.data
 ---
 
 <MainLayout>
-    <!-- <Container class="group project_hero"> -->
-      <div class="project_hero">
-        <ProjectHero 
-          transition:name={`projecthero-${id}`}
-          id={id}
-          eyebrow={eyebrow}
-          company={company}
-          project={project}
-          headline={headline}
-        />
-      </div>
-    <!-- </Container> -->
+      <ProjectContent 
+        client:visible
+        transition:name={`link-${id}`}
+        id={id}
+        eyebrow={eyebrow}
+        company={company}
+        project={project}
+        headline={headline}
+      />
 
-    <Container class="mt-12">
+    <Container>
       <Content />
     </Container>
 </MainLayout>
